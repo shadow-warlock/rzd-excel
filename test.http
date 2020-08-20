@@ -1,0 +1,6 @@
+POST http://localhost:8000
+Content-Type: application/json
+
+[0, -30, 0, -3.7, -4, true]
+
+###

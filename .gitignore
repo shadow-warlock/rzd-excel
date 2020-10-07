@@ -11,3 +11,4 @@
 /service-worker.js
 /composer.lock
 /vendor/
+/.idea/

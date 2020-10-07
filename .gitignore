@@ -9,3 +9,5 @@
 /precache-manifest.d2946d486cac2be41d1503b0e98b7212.js
 /robots.txt
 /service-worker.js
+/composer.lock
+/vendor/

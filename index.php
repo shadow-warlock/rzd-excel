@@ -26,6 +26,7 @@ foreach ($data as $k => $datum){
     $data[$k] = floatval(str_replace(",", ".", $datum));
 }
 $data[4] = $data[4]*100;
+$data[5] = $data[5]/1000;
 echo json_encode([
     "coal" => array_splice($data, 6, 5),
     "commercial_efficiency" =>array_splice($data, 1, 5)

@@ -1,16 +1,13 @@
 <?php
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
-foreach ($input as $k => $datum){
-    if($datum === "Да" || $datum === "Нет" || $datum === "-"){
-        continue;
-    }
-    if($datum === true || $datum === false){
-        $input[$k] = $datum ? "Да" : "Нет";
-        continue;
-    }
-    $input[$k] = $input[$k]/100;
-}
+//$input[0] = $input[0] - 71.5;
+//$input[1] = $input[1] - 15.4;
+//$input[2] = $input[2] - 15.2;
+//$input[3] = $input[3] - 11.9;
+//$input[4] = $input[4] - 0.2;
+//$input[5] = $input[5] - 24.8;
+//$input[6] = $input[6] - 49;
 
 $findString = join(";", $input);
 $findString = str_replace(".", ",", $findString);
@@ -27,10 +24,9 @@ foreach ($data as $k => $datum){
         continue;
     }
     $data[$k] = floatval(str_replace(",", ".", $datum));
-    if($k == 2 || $k == 6){
-        $data[$k] = $data[$k]*100;
-    }
-    $data[$k] = round($data[$k], 1);
 }
-
-echo json_encode($data);
+$data[4] = $data[4]*100;
+echo json_encode([
+    "coal" => array_splice($data, 6, 5),
+    "commercial_efficiency" =>array_splice($data, 1, 5)
+]);
